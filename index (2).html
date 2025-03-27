@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel India - Discover the Beauty</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <style>
+        @font-face {
+            font-family: 'Cocktail Shaker';
+            src: url('fonts/CocktailShaker.ttf') format('truetype');
+        }
+        /* Inline styles to prevent flash */
+        .main-content {
+            opacity: 1;
+            visibility: visible;
+        }
+        /* Splash Screen Styles */
+        .splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            z-index: 9999;
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        }
+        .dark-mode .splash {
+            background-color: #1a1a1a;
+        }
+        .splash-logo {
+            font-family: 'Cocktail Shaker', cursive;
+            font-size: 4rem;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .splash-caption {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            animation: fadeIn 1s ease-in-out 0.5s both;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .main-content {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+        }
+        .main-content.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="light-mode">
+    <!-- Splash Screen -->
+    <div class="splash">
+        <div class="splash-logo">TRAVEL</div>
+        <div class="splash-caption">Where Every Mile Tells a Story</div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <h1>Travel India</h1>
+        </div>
+        <div class="header-controls">
+            <div class="language-selector">
+                <select id="languageSelect">
+                    <option value="en">English</option>
+                    <option value="te">తెలుగు</option>
+                    <option value="hi">हिंदी</option>
+                </select>
+            </div>
+            <button id="themeToggle" class="theme-toggle">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html" data-translate="home">Home</a></li>
+            <li><a href="deserts.html" data-translate="deserts">Deserts</a></li>
+            <li><a href="forests.html" data-translate="forests">Forests</a></li>
+            <li><a href="hill-stations.html" data-translate="hillStations">Hill Stations</a></li>
+            <li><a href="forts.html" data-translate="forts">Forts</a></li>
+            <li><a href="temples.html" data-translate="temples">Temples</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <img src="images/travel-banner.jpg" alt="Travel India" class="hero-image">
+        </div>
+
+        <!-- Category Grid -->
+        <section class="category-grid">
+            <div class="places-grid">
+                <div class="place-card" data-translate="deserts" data-category="deserts">
+                    <img src="images/desert.jpg.jpg" alt="Deserts">
+                    <h3 data-translate="deserts">Deserts</h3>
+                    <p data-translate="desertsDesc">Explore the vast and mystical deserts of India, from the golden dunes of Thar to the white salt desert of Kutch. Experience camel safaris, desert camping, and witness stunning sunsets over endless sand dunes.</p>
+                </div>
+                <div class="place-card" data-translate="forests" data-category="forests">
+                    <img src="images/forest.jpg" alt="Forests">
+                    <h3 data-translate="forests">Forests</h3>
+                    <p data-translate="forestsDesc">Discover India's rich biodiversity in its diverse forests. From the dense rainforests of Western Ghats to the mangrove forests of Sundarbans, home to the majestic Royal Bengal Tiger.</p>
+                </div>
+                <div class="place-card" data-translate="hillStations" data-category="hillStations">
+                    <img src="images/hill station.jpg" alt="Hill Stations">
+                    <h3 data-translate="hillStations">Hill Stations</h3>
+                    <p data-translate="hillStationsDesc">Escape to India's picturesque hill stations nestled in the Himalayas and Western Ghats. Experience cool climate, scenic beauty, and adventure activities in places like Manali, Shimla, and Darjeeling.</p>
+                </div>
+                <div class="place-card" data-translate="forts" data-category="forts">
+                    <img src="images/fort.jpg" alt="Forts">
+                    <h3 data-translate="forts">Forts</h3>
+                    <p data-translate="fortsDesc">Journey through India's historical forts that stand as witnesses to centuries of rich heritage. Explore magnificent structures like Red Fort, Mehrangarh Fort, and Chittorgarh Fort, each telling its own story.</p>
+                </div>
+                <div class="place-card" data-translate="temples" data-category="temples">
+                    <img src="images/temple.jpg" alt="Temples">
+                    <h3 data-translate="temples">Temples</h3>
+                    <p data-translate="templesDesc">Visit India's ancient temples that showcase architectural brilliance and spiritual significance. From the colorful Meenakshi Temple to the sacred Tirupati Temple, experience divine architecture and cultural heritage.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" title="Back to Top" data-translate="backToTop">Back to Top</button>
+
+    <script>
+        // Splash Screen functionality
+        window.addEventListener('load', () => {
+            const splash = document.querySelector('.splash');
+            const mainContent = document.querySelector('.main-content');
+            
+            // After 3 seconds, hide splash and show main content
+            setTimeout(() => {
+                // Hide splash screen
+                splash.style.opacity = '0';
+                splash.style.visibility = 'hidden';
+                
+                // Show main content
+                mainContent.classList.add('visible');
+                
+                // Remove splash screen from DOM after transition
+                setTimeout(() => {
+                    splash.remove();
+                }, 500);
+            }, 3000);
+        });
+
+        // Translations object
+        const translations = {
+            en: {
+                home: "Home",
+                deserts: "Deserts",
+                forests: "Forests",
+                hillStations: "Hill Stations",
+                forts: "Forts",
+                temples: "Temples",
+                backToTop: "Back to Top",
+                tharDesert: "Thar Desert",
+                jaisalmerDesert: "Jaisalmer Desert",
+                kutchDesert: "Kutch Desert",
+                tharDesc: "Experience the magic of the Thar Desert with its golden sand dunes and rich cultural heritage.",
+                jaisalmerDesc: "Discover the enchanting Jaisalmer Desert with its magnificent forts and desert safaris.",
+                kutchDesc: "Explore the vast expanse of the Kutch Desert with its unique white salt desert and cultural festivals.",
+                desertsDesc: "Explore the vast and mystical deserts of India, from the golden dunes of Thar to the white salt desert of Kutch. Experience camel safaris, desert camping, and witness stunning sunsets over endless sand dunes.",
+                forestsDesc: "Discover India's rich biodiversity in its diverse forests. From the dense rainforests of Western Ghats to the mangrove forests of Sundarbans, home to the majestic Royal Bengal Tiger.",
+                hillStationsDesc: "Escape to India's picturesque hill stations nestled in the Himalayas and Western Ghats. Experience cool climate, scenic beauty, and adventure activities in places like Manali, Shimla, and Darjeeling.",
+                fortsDesc: "Journey through India's historical forts that stand as witnesses to centuries of rich heritage. Explore magnificent structures like Red Fort, Mehrangarh Fort, and Chittorgarh Fort, each telling its own story.",
+                templesDesc: "Visit India's ancient temples that showcase architectural brilliance and spiritual significance. From the colorful Meenakshi Temple to the sacred Tirupati Temple, experience divine architecture and cultural heritage."
+            },
+            te: {
+                home: "హోమ్",
+                deserts: "ఎడారులు",
+                forests: "అడవులు",
+                hillStations: "కొండ ప్రాంతాలు",
+                forts: "కోటలు",
+                temples: "అలయాలు",
+                backToTop: "పైకి వెళ్లండి",
+                tharDesert: "తార్ ఎడారి",
+                jaisalmerDesert: "జైసల్మేర్ ఎడారి",
+                kutchDesert: "కచ్ ఎడారి",
+                tharDesc: "బంగారు ఇసుక దిబ్బలు మరియు సంపన్న సాంస్కృతిక వారసత్వంతో తార్ ఎడారి యొక్క మాయాజాలాన్ని అనుభవించండి.",
+                jaisalmerDesc: "అద్భుతమైన కోటలు మరియు ఎడారి సఫారీలతో జైసల్మేర్ ఎడారి యొక్క మనోహరమైన ప్రదేశాన్ని کشف کریں.",
+                kutchDesc: "అద్భుతమైన తెల్లటి ఉప్పు ఎడారి మరియు సాంస్కృతిక పండుగలతో కచ్ ఎడారి యొక్క విశాలమైన ప్రదేశాన్ని అన్వేషించండి.",
+                desertsDesc: "భారతదేశంలోని విశాలమైన మరియు అద్భుతమైన ఎడారులను అన్వేషించండి, తార్ ఎడారి యొక్క బంగారు ఇసుక దిబ్బల నుండి కచ్ యొక్క తెల్లటి ఉప్పు ఎడారి వరకు. ఒంటె సఫారీలు, ఎడారి క్యాంపింగ్, మరియు అనంతమైన ఇసుక దిబ్బలపై అద్భుతమైన సూర్యాస్తమయాలను చూడండి.",
+                forestsDesc: "భారతదేశంలోని వివిధ అడవులలో దాని సమృద్ధిగా ఉన్న జీవవైవిధ్యాన్ని కనుగొనండి. పశ్చిమ కనుమల యొక్క దట్టమైన వర్షారణ్యాల నుండి రాజభోగి బెంగాల్ పులి నివాసమైన సుందర్బన్స్ మాంగ్రోవ్ అడవుల వరకు.",
+                hillStationsDesc: "హిమాలయలు మరియు పశ్చిమ కనుమలలో ఉన్న భారతదేశంలోని చిత్రమైన కొండ ప్రాంతాలకు వెళ్లండి. మనాలి, శిమ్లా మరియు దార్జీలింగ్ వంటి ప్రదేశాలలో చల్లని వాతావరణం, దృశ్య సౌందర్యం మరియు సాహస కార్యకలాపాలను అనుభవించండి.",
+                fortsDesc: "శతాబ్దాల సమృద్ధిగా ఉన్న వారసత్వానికి సాక్షిగా నిలిచి ఉన్న భారతదేశంలోని చారిత్రక కోటల ద్వారా ప్రయాణించండి. ఎర్ర కోట, మేహరంగఢ్ కోట మరియు చిత్తోర్గఢ్ కోట వంటి అద్భుతమైన నిర్మాణాలను అన్వేషించండి, ప్రతి ఒక్కటి తన సొంత కథను చెప్పుతుంది.",
+                templesDesc: "ఆర్కిటెక్చరల్ ప్రతిభ మరియు ఆధ్యాత్మిక ప్రాముఖ్యతను ప్రదర్శించే భారతదేశంలోని పురాతన దేవాలయాలను సందర్శించండి. రంగురంగుల మీనాక్షి దేవాలయం నుండి పవిత్రమైన తిరుపతి దేవాలయం వరకు, దైవిక నిర్మాణం మరియు సాంస్కృతిక వారసత్వాన్ని అనుభవించండి."
+            },
+            hi: {
+                home: "होम",
+                deserts: "रेगिस्तान",
+                forests: "जंगल",
+                hillStations: "पहाड़ी स्टेशन",
+                forts: "किले",
+                temples: "मंदिर",
+                backToTop: "ऊपर जाएं",
+                tharDesert: "थार रेगिस्तान",
+                jaisalmerDesert: "जैसलमेर रेगिस्तान",
+                kutchDesert: "कच्छ रेगिस्तान",
+                tharDesc: "सुनहरी रेत के टीलों और समृद्ध सांस्कृतिक विरासत के साथ थार रेगिस्तान का जादू अनुभव करें।",
+                jaisalmerDesc: "शानदार किलों और रेगिस्तान सफारी के साथ जैसलमेर रेगिस्तान की मनोहर जगह की खोज करें।",
+                kutchDesc: "अद्भुत सफेद नमक रेगिस्तान और सांस्कृतिक त्योहारों के साथ कच्छ रेगिस्तान के विशाल विस्तार का अन्वेषण करें।",
+                desertsDesc: "भारत के विशाल और रहस्यमय रेगिस्तानों का अन्वेषण करें, थार के सुनहरी रेत के टीलों से लेकर कच्छ के सफेद नमक के रेगिस्तान तक। ऊंट सफारी, रेगिस्तान कैंपिंग का अनुभव करें, और अनंत रेत के टीलों पर शानदार सूर्यास्त देखें।",
+                forestsDesc: "भारत की विविध जंगलों में इसकी समृद्ध जैव विविधता की खोज करें। पश्चिमी घाट के घने वर्षावनों से लेकर सुंदरबन के मैंग्रोव जंगलों तक, जहां राजसी रॉयल बंगाल टाइगर का निवास है।",
+                hillStationsDesc: "हिमालय और पश्चिमी घाट में स्थित भारत के सुरम्य हिल स्टेशनों की यात्रा करें। मनाली, शिमला और दार्जिलिंग जैसी जगहों पर ठंडी जलवायु, दृश्य सौंदर्य और साहसिक गतिविधियों का अनुभव करें।",
+                fortsDesc: "भारत के ऐतिहासिक किलों की यात्रा करें जो सदियों की समृद्ध विरासत के गवाह हैं। लाल किला, मेहरानगढ़ किला और चित्तौड़गढ़ किला जैसे शानदार ढांचों का अन्वेषण करें, जिनमें से प्रत्येक अपनी कहानी कहता है।",
+                templesDesc: "भारत के प्राचीन मंदिरों का दौरा करें जो वास्तुकला की प्रतिभा और आध्यात्मिक महत्व को प्रदर्शित करते हैं। रंगीन मीनाक्षी मंदिर से लेकर पवित्र तिरुपति मंदिर तक, दिव्य वास्तुकला और सांस्कृतिक विरासत का अनुभव करें।"
+            }
+        };
+
+        // Function to update content based on selected language
+        function updateContent(lang) {
+            // Update navigation links
+            document.querySelectorAll('nav a').forEach(link => {
+                const key = link.getAttribute('data-translate');
+                if (key && translations[lang][key]) {
+                    link.textContent = translations[lang][key];
+                }
+            });
+
+            // Update place cards
+            document.querySelectorAll('.place-card').forEach(card => {
+                const title = card.querySelector('h3');
+                const description = card.querySelector('p');
+                const titleKey = title.getAttribute('data-translate');
+                const descKey = description.getAttribute('data-translate');
+                
+                if (titleKey && translations[lang][titleKey]) {
+                    title.textContent = translations[lang][titleKey];
+                }
+                if (descKey && translations[lang][descKey]) {
+                    description.textContent = translations[lang][descKey];
+                }
+            });
+
+            // Update back to top button
+            const backToTopBtn = document.querySelector('.back-to-top');
+            if (backToTopBtn) {
+                backToTopBtn.title = translations[lang].backToTop;
+                backToTopBtn.textContent = translations[lang].backToTop;
+            }
+        }
+
+        // Language switching functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageSelect = document.getElementById('languageSelect');
+            
+            // Check for saved language preference
+            const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+            languageSelect.value = savedLang;
+            updateContent(savedLang);
+
+            // Update content when language is changed
+            languageSelect.addEventListener('change', (e) => {
+                const selectedLang = e.target.value;
+                localStorage.setItem('selectedLanguage', selectedLang);
+                updateContent(selectedLang);
+            });
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const icon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                localStorage.setItem('theme', 'light');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            }
+        });
+
+        // Back to Top Button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html> 
